@@ -1,4 +1,4 @@
-/* Author Name: Emmali (Emma) Wertz */
+/* Author/Student Name: Emmali (Emma) Wertz */
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -49,7 +49,7 @@ table {
 	border-spacing: 0;
 }
 
-/* Global branding */
+/* Global branding - fonts and colors */
 @import url('https://fonts.googleapis.com/css2?family=Molle&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -70,8 +70,376 @@ table {
 
 h1, h2, h3 {
     font-family: var(--molle);
+    color: var(--black);
 }
 
-h4, p, q, small, nav, button, form {
+h4, p, q, small, nav, button, form, input, select, a {
     font-family: var(--montserrat);
+}
+
+/* responsive font styles */
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2, h3 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+p {
+    letter-spacing: 0.5px;
+    line-height: 1.5rem;
+}
+
+/* page styles */
+html {
+    overflow-x: hidden;
+}
+
+/* skip link */
+
+#skip {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+#skip:focus {
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+/* header */
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: start;
+    width: 100vw;
+    padding-bottom: 2.5rem;
+    background-image: linear-gradient(var(--teal), var(--white));
+}
+
+header > a {
+    order: 0;
+    padding-top: 0.7rem;
+}
+
+header > nav {
+    order: 1;
+}
+
+header > h1 {
+    order: 2;
+    grid-column: 1 / -1;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+}
+
+header h2 {
+    position: absolute;
+    margin-left: -10000px;
+}
+
+header > p {
+    order: 3;
+    grid-column: 1 / -1;
+    padding: 0 1.5rem;
+    font-size: 0.9rem;
+}
+
+header img {
+    width: 150px;
+}
+
+#menu-toggle { 
+    z-index: 1;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+        user-select: none;
+}
+
+#menu-toggle input {
+    padding: 0;
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */  
+}
+
+#menu-toggle label {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.8rem 0;
+    background-color: var(--yellow);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.8rem;
+    width: 175px;
+}
+
+#menu-toggle ul {
+    position: absolute;
+    width: calc(175px - 4rem);
+    list-style-type: none;
+
+    /* Hide the menu off-screen to the left */
+    top: 57px;
+    right: -100%;
+    -webkit-transition: right 0.3s ease;
+    -o-transition: right 0.3s ease;
+    transition: right 0.3s ease; 
+}
+
+#menu-toggle li > a {
+    display: block;
+    padding: 2rem;
+    width: 100%;
+    background-color: var(--teal);
+    border-bottom: 1px solid var(--black);
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--black);
+    font-weight: 550;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* menu toggle actions */
+
+#menu-toggle input:checked + label {
+    background: var(--black);
+    color: var(--white);
+}
+
+#menu-toggle input:checked ~ ul {
+    right: 64px;
+}
+
+/* intro */
+
+#intro {
+    padding: 0 2rem;
+}
+
+#intro p {
+    font-size: 0.8rem;
+    padding: 0.75rem 0;
+}
+
+#img-grid {
+    display: grid;
+    gap: 15px;
+    margin-left: -2rem;
+}
+
+/* plan your trip section styles */
+
+#plan {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background-color: var(--yellow);
+}
+
+#plan h3 {
+    padding-bottom: 10px;
+}
+
+#plan h4 {
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+
+#plan a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#plan img {
+    width: 80%;
+    margin-top: 1rem;
+}
+
+#plan section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    padding: 1rem 1rem 2rem 1rem;
+    border-radius: 8px;
+    border: 2px solid var(--white);
+    background-color: var(--teal);
+}
+
+/* testimonials section styles */
+
+#testimonials {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem 1.5rem;
+}
+
+#testimonials div section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0 2.5rem;
+    text-align: center;
+}
+
+#testimonials img {
+    width: 75%;
+    margin-bottom: 1rem;
+}
+
+#testimonials h4 {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+#testimonials q {
+    font-style: italic;
+    text-align: center;
+    line-height: 1.25rem;
+}
+
+#testimonials q::before, #testimonials q::after {
+    content: "\""
+}
+
+/* about your destination section styles */
+
+#about {
+    padding: 1.5rem;
+    background-color: var(--blue);
+}
+
+#about div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#about section {
+    margin: 1rem;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#about h4 {
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+}
+
+#about p {
+    text-align: center;
+    margin-top: 5px;
+}
+
+#about img {
+    height: 50%;
+}
+
+/* mocks showed "miles squared" shorted to "mi sq" */
+#about > div > section:first-of-type > p {
+    width: 45px;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+}
+
+#about > div > section:first-of-type::after {
+    content: "mi sq";
+}
+/* end shorten text */
+
+/* contact us section styles */
+
+#contact, form, #contact div {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact {
+    padding: 1.5rem;
+}
+
+#contact h3 span {
+    font-family: var(--montserrat);
+    font-size: 1rem;
+    font-style: italic;
+}
+
+#contact label, #contact fieldset legend {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* only apply to the asterisks */
+#contact label span:not(.radio-label), #contact legend span:not(.radio-label) {
+    color: var(--purple);
+    margin-left: 5px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+#contact input, #contact .custom-select select {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 2.5px solid var(--purple);
+    /* normally, I would want these completely aligned left,
+    but designs show that form fields are offset by a few pixels
+     */
+    margin-left: 5px;
+}
+
+/* TODO change the dropdown arrow */
+
+#contact input[type="submit"] {
+    background-color: var(--purple);
+    color: var(--white);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 1.5rem;
+}
+
+/* footer styles */
+
+footer {
+    background-color: var(--light-gray);
+    display: grid;
+    gap: 1rem;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 1rem 0 2rem 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--black);
 }
