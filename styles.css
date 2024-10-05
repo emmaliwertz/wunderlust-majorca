@@ -172,7 +172,7 @@ header > h1 {
 
 header h2 {
     position: absolute;
-    margin-left: -1000px;
+    margin-left: -1000%;
 }
 
 header > p {
@@ -725,7 +725,7 @@ footer p {
 
     #menu-toggle input, #menu-toggle label {
         position: absolute;
-        left: -1000px;
+        left: -1000%;
     }
 
     #menu-toggle li a {
