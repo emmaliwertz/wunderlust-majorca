@@ -225,6 +225,7 @@ header img {
 
     /* Hide the menu off-screen,
     so it's hidden but can be read by screen reader */
+    /* NOTE: Confirmed accessible with screen reader */
     top: 40px;
     right: 64px;
 }
@@ -241,6 +242,7 @@ header img {
     font-size: 0.8rem;
     text-align: center;
 
+    /* NOTE: Confirmed accessible with screen reader, but links are not set up with working href */
     height: 0px;
     padding: 0px;
 }
